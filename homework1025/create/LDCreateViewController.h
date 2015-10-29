@@ -8,17 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol createDelegate <NSObject>
+@interface LDCreateViewController : UIViewController<UITextFieldDelegate>
 
-@required
--(NSMutableArray *)returnUser;
-
-@end
-
-@interface LDCreateViewController : UIViewController<UITextFieldDelegate>{
-    id <createDelegate> delegate;
-}
-@property(retain) id delegate;
 @property(strong, nonatomic) UILabel *name;
 @property(strong, nonatomic) UILabel *email;
 @property(strong, nonatomic) UILabel *age;
@@ -29,7 +20,7 @@
 @property(strong, nonatomic) NSNumber *ageValue;
 @property(strong, nonatomic) NSString *genderValue;
 @property(strong, nonatomic) NSMutableArray *user;
+@property(strong, nonatomic) UITableView *table;
 
--(instancetype) initWithUser:(NSMutableArray *)a;
--(NSMutableArray *)uuuuser;
+-(instancetype) initWithUser:(NSMutableArray *)a :(UITableView *)b;
 @end

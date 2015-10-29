@@ -17,12 +17,11 @@
 
 @implementation LDCreateViewController
 
-@synthesize delegate;
-
--(instancetype) initWithUser:(NSMutableArray *)a{
+-(instancetype) initWithUser:(NSMutableArray *)a :(UITableView *)b{
     self = [super init];
     if(self){
         _user = a;
+        _table = b;
     }
     return self;
 }
@@ -102,7 +101,6 @@
 }
 -(void)submitBtnTapped{
     [self.presentingViewController dismissViewControllerAnimated:YES completion:^{
-        LDRootViewController *root = [[LDRootViewController alloc] init];
         NSArray *addUserInfo = @[
                                  @{
                                      @"name" : _nameValue,
@@ -116,13 +114,8 @@
             [self.user addObject:asd];
         }
         
-        //NSLog(@"%@......", result);
-        //[root updateUserInfo:(NSMutableArray *)_user];
-        UITableView *table1 = [root returnTableView];
-        [table1 registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
-        [table1 reloadData];
-        root.arr = self.user;
-        [table1 reloadData];
+        [self.table reloadData];
+        
     }];
 }
 -(void)cancelBtnTapped{
@@ -139,13 +132,6 @@
         _ageValue = [f numberFromString:textField.text];
     }
     return YES;
-}
-
--(NSMutableArray *)uuuuser{
-    NSMutableArray *asdf = [[NSMutableArray alloc] init];
-    asdf = _user;
-    NSLog(@"self.delegate = %@", asdf);
-    return asdf;
 }
 
 @end

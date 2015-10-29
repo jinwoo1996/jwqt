@@ -14,7 +14,7 @@
 
 -(void)processComplete{
     [[self delegate] ProcessSuccessful:YES];
-    NSLog(@"asdf");
+    //NSLog(@"asdf");
 }
 -(void)startSomeProcess{
     [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(processComplete) userInfo:nil repeats:YES];

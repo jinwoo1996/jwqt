@@ -30,23 +30,23 @@
     self.view.backgroundColor = [UIColor blueColor];
     
     NSArray *defaultUser = [self.class defaultDic];
-    _arr = [[NSMutableArray alloc] init];
+    self.arr = [[NSMutableArray alloc] init];
     for(NSDictionary *dic in defaultUser){
-        _userInfo = [[LDUser alloc] initWithDic:dic];
-        [_arr addObject:_userInfo];
+        self.userInfo = [[LDUser alloc] initWithDic:dic];
+        [self.arr addObject:self.userInfo];
     }
     
     
-    _table = [[UITableView alloc] initWithFrame:self.view.bounds];
-    _table.tag = 10;
-    _table.delegate = self;
-    _table.dataSource = self;
-    [_table registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
-    _table.backgroundColor = [UIColor orangeColor];
-    [self.view addSubview:_table];
+    self.table = [[UITableView alloc] initWithFrame:self.view.bounds];
+    self.table.tag = 10;
+    self.table.delegate = self;
+    self.table.dataSource = self;
+    [self.table registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
+    self.table.backgroundColor = [UIColor orangeColor];
+    [self.view addSubview:self.table];
 }
 -(void)addButtonTapped{
-    LDCreateViewController *create = [[LDCreateViewController alloc] initWithUser:_arr];
+    LDCreateViewController *create = [[LDCreateViewController alloc] initWithUser:_arr :_table];
     
     [self presentViewController:create animated:YES completion:nil];
 }
@@ -75,31 +75,7 @@
     cell.textLabel.text = userName.name;
     return cell;
 }
--(void) updateUserInfo:(NSMutableArray *)a{
-    cre = [[LDCreateViewController alloc] init];
-    NSLog(@"cre.delegate!!!! = %@", cre.delegate);
-    cre.delegate = self;
-    [cre uuuuser];
-    NSLog(@"cre.delegate = %@", cre.delegate);
-    self.arr = a;
-    NSLog(@"_arr = %@", _arr);
-//    NSArray *defaultUser = [self.class defaultDic];
-//    NSArray *updateUser = [[NSArray alloc] initWithObjects:defaultUser, a, nil];
-//    
-//    for(NSDictionary *dics in updateUser){
-//        for(NSDictionary *dic in dics){
-//            _userInfo = [[LDUser alloc] initWithDic:dic];
-//            [self.arr addObject:self.userInfo];
-//        }
-//    }
-    
-    
-    NSLog(@"reload");
-    [self.view.subviews.lastObject reloadData];
-    NSLog(@"reload");
-    
-    NSLog(@"self.table.tag = %ld, _table.tag = %ld, self.view.subviews.lastObject.tag = %ld", self.table.tag, _table.tag, self.view.subviews.lastObject.tag);
-}
+
 +(NSArray *) defaultDic{
     return @[
              @{
@@ -121,12 +97,5 @@
                  @"gender" : @"female"
                  }
              ];
-}
--(NSMutableArray *)returnUser{
-    
-    return cre.user;
-}
--(UITableView *)returnTableView{
-    return self.view.subviews.lastObject;
 }
 @end

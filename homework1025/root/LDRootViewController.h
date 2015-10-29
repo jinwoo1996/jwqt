@@ -13,15 +13,11 @@
 
 @class LDUser;
 
-@interface LDRootViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, createDelegate>{
-    LDCreateViewController *cre;
-}
+@interface LDRootViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
 
 @property (strong, nonatomic) NSMutableArray *arr;
 @property (strong, nonatomic) LDUser *userInfo;
 @property (strong, nonatomic) UITableView *table;
 
 +(NSArray *) defaultDic;
--(void) updateUserInfo:(NSMutableArray *)a;
--(UITableView *)returnTableView;
 @end
