@@ -11,6 +11,8 @@
 #import "LDCreateViewController.h"
 #import "LDUser.h"
 
+#import <sqlite3.h>
+
 @interface LDCreateViewController ()
 
 @end
@@ -101,6 +103,25 @@
 }
 -(void)submitBtnTapped{
     [self.presentingViewController dismissViewControllerAnimated:YES completion:^{
+        NSString *documentsDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+        NSString *filePath = [documentsDirectory stringByAppendingPathComponent:@"userInfo.sqlite3"];
+        sqlite3 *database;
+        if(sqlite3_open([filePath UTF8String], &database) != SQLITE_OK){
+            sqlite3_close(database);
+            NSLog(@"error");
+        }else{
+            sqlite3_stmt *insertStatement;
+            char *insertSql = "INSERT INTO userInfo (name, address, age, gender) VALUES (?, ?, ?, ?)";
+            if(sqlite3_prepare_v2(database, insertSql, -1, &insertStatement, NULL) == SQLITE_OK){
+                sqlite3_bind_text(insertStatement, 1, [_nameValue UTF8String], -1, SQLITE_TRANSIENT);
+                sqlite3_bind_text(insertStatement, 2, [_emailValue UTF8String], -1, SQLITE_TRANSIENT);
+                sqlite3_bind_int(insertStatement, 3, _ageValue.intValue);
+                sqlite3_bind_text(insertStatement, 4, [_genderValue UTF8String], -1, SQLITE_TRANSIENT);
+                if(sqlite3_step(insertStatement) != SQLITE_DONE){
+                    NSLog(@"에러");
+                }
+            }
+        }
         NSArray *addUserInfo = @[
                                  @{
                                      @"name" : _nameValue,

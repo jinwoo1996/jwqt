@@ -7,11 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "LDCustomDelegate.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate, LDCustomDelegate>{
-    LDCustomDelegate *dele;
-}
+@interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "LDCustomDelegate.h"
 #import "LDRootViewController.h"
 
 @interface AppDelegate ()
@@ -25,17 +24,8 @@
     _window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     _window.rootViewController = navi;
     
-    dele = [[LDCustomDelegate alloc]init];
-    dele.delegate = self;
-    [dele processComplete];
-    
     [_window makeKeyAndVisible];
     
     return YES;
 }
-
--(void)ProcessSuccessful:(BOOL)success{
-    
-}
-
 @end

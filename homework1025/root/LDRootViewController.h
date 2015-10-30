@@ -18,6 +18,8 @@
 @property (strong, nonatomic) NSMutableArray *arr;
 @property (strong, nonatomic) LDUser *userInfo;
 @property (strong, nonatomic) UITableView *table;
+@property (strong, nonatomic) NSMutableArray *arr1;
+@property (strong, nonatomic) NSArray *defaultUser;
 
 +(NSArray *) defaultDic;
 @end

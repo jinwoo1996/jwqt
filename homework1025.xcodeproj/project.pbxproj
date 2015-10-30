@@ -16,7 +16,8 @@
 		3C1DF3771BDC93E700C15A2C /* LDUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C1DF3761BDC93E700C15A2C /* LDUser.m */; };
 		3C1DF37B1BDCA34600C15A2C /* LDDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C1DF37A1BDCA34600C15A2C /* LDDetailViewController.m */; };
 		3C1DF37F1BDCAF6A00C15A2C /* LDCreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C1DF37E1BDCAF6A00C15A2C /* LDCreateViewController.m */; };
-		3C85A5F21BE05EB5009DBA55 /* LDCustomDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C85A5F11BE05EB5009DBA55 /* LDCustomDelegate.m */; };
+		3C90506F1BE30E4600912C53 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C90506E1BE30E4600912C53 /* libsqlite3.tbd */; };
+		3C9050741BE3126600912C53 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C9050731BE3126600912C53 /* libsqlite3.0.tbd */; };
 		C1C3EF75BE5F1A3AD02D58DF /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CA31A8A9C1B9D53CE683C40 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -38,8 +39,8 @@
 		3C1DF37A1BDCA34600C15A2C /* LDDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDDetailViewController.m; sourceTree = "<group>"; };
 		3C1DF37D1BDCAF6A00C15A2C /* LDCreateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDCreateViewController.h; sourceTree = "<group>"; };
 		3C1DF37E1BDCAF6A00C15A2C /* LDCreateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDCreateViewController.m; sourceTree = "<group>"; };
-		3C85A5F01BE05EB5009DBA55 /* LDCustomDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDCustomDelegate.h; sourceTree = "<group>"; };
-		3C85A5F11BE05EB5009DBA55 /* LDCustomDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDCustomDelegate.m; sourceTree = "<group>"; };
+		3C90506E1BE30E4600912C53 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		3C9050731BE3126600912C53 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		5DFC86235802AE353A0CC5C3 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		DDABDD589199A00B9EBA29C2 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -49,6 +50,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C9050741BE3126600912C53 /* libsqlite3.0.tbd in Frameworks */,
+				3C90506F1BE30E4600912C53 /* libsqlite3.tbd in Frameworks */,
 				C1C3EF75BE5F1A3AD02D58DF /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -79,8 +82,6 @@
 			children = (
 				3C1DF34F1BDC86E400C15A2C /* AppDelegate.h */,
 				3C1DF3501BDC86E400C15A2C /* AppDelegate.m */,
-				3C85A5F01BE05EB5009DBA55 /* LDCustomDelegate.h */,
-				3C85A5F11BE05EB5009DBA55 /* LDCustomDelegate.m */,
 				3C1DF37C1BDCAF5400C15A2C /* create */,
 				3C1DF3781BDCA31D00C15A2C /* detail */,
 				3C1DF3741BDC93D400C15A2C /* model */,
@@ -150,6 +151,8 @@
 		D0E379C305A8C28DCE416388 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3C9050731BE3126600912C53 /* libsqlite3.0.tbd */,
+				3C90506E1BE30E4600912C53 /* libsqlite3.tbd */,
 				1CA31A8A9C1B9D53CE683C40 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -281,7 +284,6 @@
 				3C1DF37F1BDCAF6A00C15A2C /* LDCreateViewController.m in Sources */,
 				3C1DF37B1BDCA34600C15A2C /* LDDetailViewController.m in Sources */,
 				3C1DF3771BDC93E700C15A2C /* LDUser.m in Sources */,
-				3C85A5F21BE05EB5009DBA55 /* LDCustomDelegate.m in Sources */,
 				3C1DF3511BDC86E400C15A2C /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
