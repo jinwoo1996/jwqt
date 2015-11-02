@@ -21,5 +21,4 @@
 @property (strong, nonatomic) NSMutableArray *arr1;
 @property (strong, nonatomic) NSArray *defaultUser;
 
-+(NSArray *) defaultDic;
 @end

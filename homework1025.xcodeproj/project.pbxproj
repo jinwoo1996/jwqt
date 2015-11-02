@@ -18,6 +18,7 @@
 		3C1DF37F1BDCAF6A00C15A2C /* LDCreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C1DF37E1BDCAF6A00C15A2C /* LDCreateViewController.m */; };
 		3C90506F1BE30E4600912C53 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C90506E1BE30E4600912C53 /* libsqlite3.tbd */; };
 		3C9050741BE3126600912C53 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C9050731BE3126600912C53 /* libsqlite3.0.tbd */; };
+		3C9050D21BE7563300912C53 /* LDTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C9050D11BE7563300912C53 /* LDTableViewCell.m */; };
 		C1C3EF75BE5F1A3AD02D58DF /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CA31A8A9C1B9D53CE683C40 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,8 @@
 		3C1DF37E1BDCAF6A00C15A2C /* LDCreateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDCreateViewController.m; sourceTree = "<group>"; };
 		3C90506E1BE30E4600912C53 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		3C9050731BE3126600912C53 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		3C9050D01BE7563300912C53 /* LDTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDTableViewCell.h; sourceTree = "<group>"; };
+		3C9050D11BE7563300912C53 /* LDTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDTableViewCell.m; sourceTree = "<group>"; };
 		5DFC86235802AE353A0CC5C3 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		DDABDD589199A00B9EBA29C2 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -106,6 +109,7 @@
 		3C1DF3701BDC87D300C15A2C /* root */ = {
 			isa = PBXGroup;
 			children = (
+				3C9050CF1BE7561E00912C53 /* cell */,
 				3C1DF3711BDC88A700C15A2C /* LDRootViewController.h */,
 				3C1DF3721BDC88A700C15A2C /* LDRootViewController.m */,
 			);
@@ -137,6 +141,15 @@
 				3C1DF37E1BDCAF6A00C15A2C /* LDCreateViewController.m */,
 			);
 			path = create;
+			sourceTree = "<group>";
+		};
+		3C9050CF1BE7561E00912C53 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				3C9050D01BE7563300912C53 /* LDTableViewCell.h */,
+				3C9050D11BE7563300912C53 /* LDTableViewCell.m */,
+			);
+			path = cell;
 			sourceTree = "<group>";
 		};
 		C1CBD74E93AC4BADD0B05503 /* Pods */ = {
@@ -283,6 +296,7 @@
 				3C1DF3731BDC88A700C15A2C /* LDRootViewController.m in Sources */,
 				3C1DF37F1BDCAF6A00C15A2C /* LDCreateViewController.m in Sources */,
 				3C1DF37B1BDCA34600C15A2C /* LDDetailViewController.m in Sources */,
+				3C9050D21BE7563300912C53 /* LDTableViewCell.m in Sources */,
 				3C1DF3771BDC93E700C15A2C /* LDUser.m in Sources */,
 				3C1DF3511BDC86E400C15A2C /* AppDelegate.m in Sources */,
 			);

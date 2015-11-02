@@ -7,8 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+@class LDCreateViewController;
+@class LDUser;
+@protocol LDCreateViewControllerDelegate <NSObject>
+
+- (void)createViewControllder:(LDCreateViewController *)viewController didCreateUser:(LDUser *)user;
+
+@end
 
 @interface LDCreateViewController : UIViewController<UITextFieldDelegate>
+
+@property(weak, nonatomic) id<LDCreateViewControllerDelegate> delegate;
 
 @property(strong, nonatomic) UILabel *name;
 @property(strong, nonatomic) UILabel *email;
@@ -19,8 +28,6 @@
 @property(strong, nonatomic) NSString *emailValue;
 @property(strong, nonatomic) NSNumber *ageValue;
 @property(strong, nonatomic) NSString *genderValue;
-@property(strong, nonatomic) NSMutableArray *user;
-@property(strong, nonatomic) UITableView *table;
 
--(instancetype) initWithUser:(NSMutableArray *)a :(UITableView *)b;
+-(instancetype) init;
 @end

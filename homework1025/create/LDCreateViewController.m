@@ -19,14 +19,6 @@
 
 @implementation LDCreateViewController
 
--(instancetype) initWithUser:(NSMutableArray *)a :(UITableView *)b{
-    self = [super init];
-    if(self){
-        _user = a;
-        _table = b;
-    }
-    return self;
-}
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -102,42 +94,27 @@
     _genderValue = [_inputGender titleForSegmentAtIndex:[_inputGender selectedSegmentIndex]];
 }
 -(void)submitBtnTapped{
-    [self.presentingViewController dismissViewControllerAnimated:YES completion:^{
-        NSString *documentsDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-        NSString *filePath = [documentsDirectory stringByAppendingPathComponent:@"userInfo.sqlite3"];
-        sqlite3 *database;
-        if(sqlite3_open([filePath UTF8String], &database) != SQLITE_OK){
-            sqlite3_close(database);
-            NSLog(@"error");
-        }else{
-            sqlite3_stmt *insertStatement;
-            char *insertSql = "INSERT INTO userInfo (name, address, age, gender) VALUES (?, ?, ?, ?)";
-            if(sqlite3_prepare_v2(database, insertSql, -1, &insertStatement, NULL) == SQLITE_OK){
-                sqlite3_bind_text(insertStatement, 1, [_nameValue UTF8String], -1, SQLITE_TRANSIENT);
-                sqlite3_bind_text(insertStatement, 2, [_emailValue UTF8String], -1, SQLITE_TRANSIENT);
-                sqlite3_bind_int(insertStatement, 3, _ageValue.intValue);
-                sqlite3_bind_text(insertStatement, 4, [_genderValue UTF8String], -1, SQLITE_TRANSIENT);
-                if(sqlite3_step(insertStatement) != SQLITE_DONE){
-                    NSLog(@"에러");
-                }
-            }
-        }
-        NSArray *addUserInfo = @[
-                                 @{
-                                     @"name" : _nameValue,
-                                     @"address" : _emailValue,
-                                     @"age" : _ageValue,
-                                     @"gender" : _genderValue
-                                     }
-                                 ];
-        for(NSDictionary *d in addUserInfo){
+    [self.view endEditing:YES];
+    if([_nameValue isEqualToString:@""] || [_emailValue isEqualToString:@""] || _ageValue.stringValue.length < 1 || [_genderValue isEqualToString:@""]){
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Waring!" message:@"빈 칸을 입력해주세요." preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil];
+        [alert addAction:ok];
+        [self presentViewController:alert animated:YES completion:nil];
+    }else{
+        [self.presentingViewController dismissViewControllerAnimated:YES completion:^{
+            NSDictionary *d = @{
+                                @"name" : _nameValue,
+                                @"address" : _emailValue,
+                                @"age" : _ageValue,
+                                @"gender" : _genderValue
+                                };
             LDUser *asd = [[LDUser alloc] initWithDic:d];
-            [self.user addObject:asd];
-        }
-        
-        [self.table reloadData];
-        
-    }];
+            
+            if([_delegate respondsToSelector:@selector(createViewControllder:didCreateUser:)]){
+                [_delegate createViewControllder:self didCreateUser:asd];
+            }
+        }];
+    }
 }
 -(void)cancelBtnTapped{
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
